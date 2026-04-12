@@ -1,0 +1,130 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies (if any)
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        else
+          echo "No package.json found - skipping npm install"
+        fi
+        
+    - name: Build (if needed)
+      run: |
+        if [ -f package.json ] && grep -q '"build"' package.json; then
+          npm run build
+        else
+          echo "No build script found - skipping build"
+        fi
+        
+    - name: Optimize assets
+      run: |
+        # Minificar CSS (se não estiver minificado)
+        echo "Checking CSS files..."
+        find assets/css -name "*.css" -type f | while read file; do
+          if [[ $file != *.min.css ]]; then
+            echo "CSS file found: $file"
+          fi
+        done
+        
+        # Minificar JS (se não estiver minificado)
+        echo "Checking JS files..."
+        find assets/js -name "*.js" -type f | while read file; do
+          if [[ $file != *.min.js ]]; then
+            echo "JS file found: $file"
+          fi
+        done
+        
+    - name: Generate sitemap
+      run: |
+        # Criar sitemap.xml para SEO
+        cat > sitemap.xml << 'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://username.github.io/conversor-universal/</loc>
+    <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://username.github.io/conversor-universal/conversoes/comprimento.html</loc>
+    <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://username.github.io/conversor-universal/conversoes/peso.html</loc>
+    <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://username.github.io/conversor-universal/conversoes/temperatura.html</loc>
+    <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://username.github.io/conversor-universal/conversoes/volume.html</loc>
+    <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://username.github.io/conversor-universal/conversoes/moeda.html</loc>
+    <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
+EOF
+        
+    - name: Generate robots.txt
+      run: |
+        cat > robots.txt << 'EOF'
+User-agent: *
+Allow: /
+Sitemap: https://username.github.io/conversor-universal/sitemap.xml
+
+# Block unnecessary bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+EOF
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        
+    - name: Deploy Preview
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref != 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        destination_dir: preview-${{ github.event.number }}

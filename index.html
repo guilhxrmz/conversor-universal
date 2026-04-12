@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Universal Online | Gratuito e Rápido</title>
+    <meta name="description" content="Conversor online gratuito de medidas, peso, temperatura, volume e moedas. Rápido, preciso e funciona offline.">
+    <meta name="keywords" content="conversor, conversor online, conversor de medidas, conversor de peso, conversor de temperatura, calculadora">
+    <meta name="author" content="Conversor Universal">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Conversor Universal Online">
+    <meta property="og:description" content="Conversor online gratuito de medidas, peso, temperatura e moedas">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-SEU-CODIGO-AQUI"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h1><a href="index.html">Conversor Universal</a></h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="#dev-tools">Ferramentas Dev</a>
+                    <a href="#converters">Conversores</a>
+                </div>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!-- Ferramentas para Desenvolvedores -->
+            <section id="dev-tools" class="dev-tools-section">
+                <div class="section-header">
+                    <h2>Ferramentas para Desenvolvedores</h2>
+                    <p>Conversores essenciais para desenvolvimento web</p>
+                </div>
+                <div class="dev-tools-grid">
+                    <a href="conversoes/timestamp.html" class="tool-card">
+                        <div class="tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="tool-content">
+                            <h3>Timestamp</h3>
+                            <p>Unix timestamp para data</p>
+                            <span class="tool-badge">DEV</span>
+                        </div>
+                    </a>
+
+                    <a href="conversoes/base64.html" class="tool-card">
+                        <div class="tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="tool-content">
+                            <h3>Base64</h3>
+                            <p>Texto e imagem para Base64</p>
+                            <span class="tool-badge">DEV</span>
+                        </div>
+                    </a>
+
+                    <a href="conversoes/cores.html" class="tool-card">
+                        <div class="tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 2v20"></path>
+                                <path d="M12 2a10 10 0 0 1 0 20"></path>
+                            </svg>
+                        </div>
+                        <div class="tool-content">
+                            <h3>Cores</h3>
+                            <p>HEX, RGB, HSL converter</p>
+                            <span class="tool-badge">DEV</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Espaçamento entre seções -->
+            <div class="section-divider"></div>
+
+            <!-- Conversores Gerais -->
+            <section id="converters" class="converters-section">
+                <div class="section-header">
+                    <h2>Conversores Gerais</h2>
+                    <p>Conversões do dia a dia</p>
+                </div>
+                <div class="converters-grid">
+                    <!-- Peso/Massa -->
+                    <div class="converter-card" data-category="weight">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M12 2v20"></path>
+                                    <path d="M12 2l4 2.5v15l-4 2.5"></path>
+                                </svg>
+                            </div>
+                            <h3>Peso/Massa</h3>
+                            <p>Quilograma, Libra, Grama</p>
+                        </div>
+                        <div class="converter-content">
+                            <div class="converter-inputs">
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="weight-kilogram" 
+                                           data-unit="kilogram" 
+                                           data-category="weight"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="weight-kilogram">Quilograma (kg)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="weight-pound" 
+                                           data-unit="pound" 
+                                           data-category="weight"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="weight-pound">Libra (lb)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="weight-gram" 
+                                           data-unit="gram" 
+                                           data-category="weight"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="weight-gram">Grama (g)</label>
+                                </div>
+                            </div>
+                            <div class="quick-info">
+                                <span>1 kg = 2.2 libras</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Temperatura -->
+                    <div class="converter-card" data-category="temperature">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+                                </svg>
+                            </div>
+                            <h3>Temperatura</h3>
+                            <p>Celsius, Fahrenheit, Kelvin</p>
+                        </div>
+                        <div class="converter-content">
+                            <div class="converter-inputs">
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="temp-celsius" 
+                                           data-unit="celsius" 
+                                           data-category="temperature"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="temp-celsius">Celsius (°C)</label>
+                        </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="temp-fahrenheit" 
+                                           data-unit="fahrenheit" 
+                                           data-category="temperature"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="temp-fahrenheit">Fahrenheit (°F)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="temp-kelvin" 
+                                           data-unit="kelvin" 
+                                           data-category="temperature"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="temp-kelvin">Kelvin (K)</label>
+                                </div>
+                            </div>
+                            <div class="quick-info">
+                                <span>0°C = 32°F = 273.15K</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume -->
+                    <div class="converter-card" data-category="volume">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M12 2v20"></path>
+                                    <path d="M12 2l4 2.5v15l-4 2.5"></path>
+                                    <path d="M12 2L8 4.5v15l4 2.5"></path>
+                                </svg>
+                            </div>
+                            <h3>Volume</h3>
+                            <p>Litro, Mililitro, Galão, Onça</p>
+                        </div>
+                        <div class="converter-content">
+                            <div class="converter-inputs">
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="volume-liter" 
+                                           data-unit="liter" 
+                                           data-category="volume"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="volume-liter">Litro (L)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="volume-milliliter" 
+                                           data-unit="milliliter" 
+                                           data-category="volume"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="volume-milliliter">Mililitro (mL)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="volume-gallon" 
+                                           data-unit="gallon" 
+                                           data-category="volume"
+                                           placeholder="0"
+                                           step="any">
+                                    <label for="volume-gallon">Galão (gal)</label>
+                                </div>
+                            </div>
+                            <div class="quick-info">
+                                <span>1 litro = 1000 mililitros</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Moeda -->
+                    <div class="converter-card" data-category="currency">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 6v12"></path>
+                                    <path d="M12 12h8"></path>
+                                </svg>
+                            </div>
+                            <h3>Moeda</h3>
+                            <p>Real, Dólar, Euro</p>
+                        </div>
+                        <div class="converter-content">
+                            <div class="converter-inputs">
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="currency-brl" 
+                                           data-unit="brl" 
+                                           data-category="currency"
+                                           placeholder="0"
+                                           step="0.01">
+                                    <label for="currency-brl">Real (R$)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="currency-usd" 
+                                           data-unit="usd" 
+                                           data-category="currency"
+                                           placeholder="0"
+                                           step="0.01">
+                                    <label for="currency-usd">Dólar ($)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" 
+                                           class="converter-input" 
+                                           id="currency-eur" 
+                                           data-unit="eur" 
+                                           data-category="currency"
+                                           placeholder="0"
+                                           step="0.01">
+                                    <label for="currency-eur">Euro (¢)</label>
+                                </div>
+                            </div>
+                            <div class="quick-info">
+                                <span id="currency-rate">Taxa: $1 = R$5.20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Conversor Universal. Ferramenta gratuita de conversão online.</p>
+                <div class="footer-links">
+                    <a href="/sobre">Sobre</a>
+                    <a href="/contato">Contato</a>
+                    <a href="/privacidade">Privacidade</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/converter.js"></script>
+    <script src="assets/js/history.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

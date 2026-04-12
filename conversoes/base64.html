@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Base64 | Texto e Imagem para Base64</title>
+    <meta name="description" content="Conversor Base64 online gratuito. Converta texto, imagens e arquivos para Base64 e vice-versa.">
+    <meta name="keywords" content="base64 converter, text to base64, image to base64, base64 encoder decoder">
+    
+    <link rel="canonical" href="../conversoes/base64.html">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXX"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h1><a href="../index.html">Conversor Universal</a></h1>
+                    <span class="tagline">Conversor Base64</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="../index.html#dev-tools">Voltar</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <section class="converter-section">
+            <!-- Text to Base64 -->
+            <div class="converter-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                        </svg>
+                    </div>
+                    <h3>Texto para Base64</h3>
+                    <p>Converta texto simples para Base64</p>
+                </div>
+                <div class="converter-content">
+                    <div class="text-converter">
+                        <div class="converter-row">
+                            <div class="input-group">
+                                <textarea id="textInput" 
+                                          placeholder="Digite o texto para converter..."
+                                          rows="4"></textarea>
+                                <label for="textInput">Texto Original</label>
+                                <div class="text-stats">
+                                    <span id="textLength">0 caracteres</span>
+                                    <button id="clearText" class="btn-clear">Limpar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="converter-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M7 7L17 7"></path>
+                                <path d="M17 7L17 17"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="converter-row">
+                            <div class="input-group">
+                                <textarea id="base64TextOutput" 
+                                          placeholder="Base64 aparecerá aqui..."
+                                          rows="4"
+                                          readonly></textarea>
+                                <label for="base64TextOutput">Base64</label>
+                                <div class="output-actions">
+                                    <button id="copyBase64Text" class="btn-primary">Copiar</button>
+                                    <button id="downloadBase64Text" class="btn-secondary">Baixar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Base64 to Text -->
+            <div class="converter-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                        </svg>
+                    </div>
+                    <h3>Base64 para Texto</h3>
+                    <p>Converta Base64 de volta para texto</p>
+                </div>
+                <div class="converter-content">
+                    <div class="text-converter">
+                        <div class="converter-row">
+                            <div class="input-group">
+                                <textarea id="base64Input" 
+                                          placeholder="Cole o Base64 aqui..."
+                                          rows="4"></textarea>
+                                <label for="base64Input">Base64</label>
+                                <div class="text-stats">
+                                    <span id="base64Length">0 caracteres</span>
+                                    <button id="clearBase64" class="btn-clear">Limpar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="converter-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M17 17L7 7"></path>
+                                <path d="M17 7L17 17"></path>
+                                <path d="M7 7L17 7"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="converter-row">
+                            <div class="input-group">
+                                <textarea id="textOutput" 
+                                          placeholder="Texto decodificado aparecerá aqui..."
+                                          rows="4"
+                                          readonly></textarea>
+                                <label for="textOutput">Texto Decodificado</label>
+                                <div class="output-actions">
+                                    <button id="copyDecodedText" class="btn-primary">Copiar</button>
+                                    <button id="downloadDecodedText" class="btn-secondary">Baixar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anúncio -->
+        <div class="ad-between-sections">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXX"
+                 data-ad-slot="XXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <!-- Image to Base64 -->
+        <section class="image-converter">
+            <h3>Imagem para Base64</h3>
+            <div class="image-converter-content">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p>Arraste uma imagem aqui ou clique para selecionar</p>
+                        <p class="upload-hint">Suporta: JPG, PNG, GIF, WebP (máx 10MB)</p>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <div class="preview-image">
+                        <img id="previewImg" src="" alt="Preview">
+                    </div>
+                    <div class="image-info">
+                        <div class="info-item">
+                            <span class="info-label">Nome:</span>
+                            <span class="info-value" id="imageName">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tamanho:</span>
+                            <span class="info-value" id="imageSize">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tipo:</span>
+                            <span class="info-value" id="imageType">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="base64-result" id="base64Result" style="display: none;">
+                    <div class="result-header">
+                        <h4>Base64 Resultado</h4>
+                        <div class="result-actions">
+                            <button id="copyImageBase64">Copiar Base64</button>
+                            <button id="copyImageHtml">Copiar HTML</button>
+                            <button id="downloadImageBase64">Baixar</button>
+                        </div>
+                    </div>
+                    <textarea id="imageBase64Output" readonly rows="6"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- File to Base64 -->
+        <section class="file-converter">
+            <h3>Arquivo para Base64</h3>
+            <div class="file-converter-content">
+                <div class="upload-area" id="fileUploadArea">
+                    <div class="upload-content">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <p>Arraste um arquivo aqui ou clique para selecionar</p>
+                        <p class="upload-hint">Suporta qualquer tipo de arquivo (máx 10MB)</p>
+                        <input type="file" id="fileInput" style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-details">
+                        <div class="info-item">
+                            <span class="info-label">Nome:</span>
+                            <span class="info-value" id="fileName">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tamanho:</span>
+                            <span class="info-value" id="fileSize">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tipo:</span>
+                            <span class="info-value" id="fileType">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="file-base64-result" id="fileBase64Result" style="display: none;">
+                    <div class="result-header">
+                        <h4>Base64 do Arquivo</h4>
+                        <div class="result-actions">
+                            <button id="copyFileBase64">Copiar Base64</button>
+                            <button id="downloadFileBase64">Baixar</button>
+                        </div>
+                    </div>
+                    <textarea id="fileBase64Output" readonly rows="6"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide -->
+        <section class="guide-section">
+            <h2>Guia Base64</h2>
+            
+            <div class="guide-content">
+                <div class="guide-item">
+                    <h3>O que é Base64?</h3>
+                    <p>Base64 é um método de codificação que converte dados binários em texto ASCII, usado para transmitir dados em canais de texto.</p>
+                </div>
+
+                <div class="guide-item">
+                    <h3>Quando usar Base64?</h3>
+                    <ul class="use-cases">
+                        <li>Embedder imagens em HTML/CSS</li>
+                        <li>Transmitir dados binários em JSON/XML</li>
+                        <li>Armazenar arquivos em bancos de dados</li>
+                        <li>Email attachments</li>
+                        <li>Data URLs em desenvolvimento web</li>
+                    </ul>
+                </div>
+
+                <div class="guide-item">
+                    <h3>Limitações</h3>
+                    <ul class="limitations">
+                        <li>Aumenta o tamanho em ~33%</li>
+                        <li>Não é criptografia (apenas codificação)</li>
+                        <li>Performance para arquivos grandes</li>
+                        <li>Compatibilidade com browsers antigos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples -->
+        <section class="examples-section">
+            <h2>Exemplos de Uso</h2>
+            
+            <div class="examples-grid">
+                <div class="example">
+                    <h4>HTML Image Embed</h4>
+                    <pre><code>&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANS..."&gt;</code></pre>
+                </div>
+                
+                <div class="example">
+                    <h4>CSS Background</h4>
+                    <pre><code>background: url(data:image/png;base64,iVBORw0KGgoAAAANS...);</code></pre>
+                </div>
+                
+                <div class="example">
+                    <h4>JavaScript Data URL</h4>
+                    <pre><code>const img = 'data:image/png;base64,iVBORw0KGgoAAAANS...';</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Base64 é seguro para dados sensíveis?</h3>
+                    <p>Não! Base64 é codificação, não criptografia. Qualquer pessoa pode decodificar Base64 facilmente.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Qual o tamanho máximo de arquivo?</h3>
+                    <p>Limitamos a 10MB para performance. Arquivos maiores podem causar lentidão no navegador.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Posso usar Base64 para imagens em produção?</h3>
+                    <p>Sim, mas apenas para imagens pequenas. Imagens grandes devem ser servidas como arquivos separados.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Como identificar Base64?</h3>
+                    <p>Base64 geralmente termina com = ou == e contém apenas caracteres A-Z, a-z, 0-9, +, /.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Conversor Universal. Conversor Base64 online gratuito.</p>
+            <div class="footer-links">
+                <a href="../index.html">Início</a>
+                <a href="../sobre">Sobre</a>
+                <a href="../contato">Contato</a>
+                <a href="../privacidade">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Base64 Converter Logic
+        class Base64Converter {
+            constructor() {
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                // Text to Base64
+                document.getElementById('textInput').addEventListener('input', (e) => {
+                    const text = e.target.value;
+                    const base64 = btoa(unescape(encodeURIComponent(text)));
+                    document.getElementById('base64TextOutput').value = base64;
+                    document.getElementById('textLength').textContent = `${text.length} caracteres`;
+                });
+
+                document.getElementById('clearText').addEventListener('click', () => {
+                    document.getElementById('textInput').value = '';
+                    document.getElementById('base64TextOutput').value = '';
+                    document.getElementById('textLength').textContent = '0 caracteres';
+                });
+
+                // Base64 to Text
+                document.getElementById('base64Input').addEventListener('input', (e) => {
+                    const base64 = e.target.value;
+                    try {
+                        const text = decodeURIComponent(escape(atob(base64)));
+                        document.getElementById('textOutput').value = text;
+                        document.getElementById('base64Length').textContent = `${base64.length} caracteres`;
+                    } catch (error) {
+                        document.getElementById('textOutput').value = 'Base64 inválido';
+                    }
+                });
+
+                document.getElementById('clearBase64').addEventListener('click', () => {
+                    document.getElementById('base64Input').value = '';
+                    document.getElementById('textOutput').value = '';
+                    document.getElementById('base64Length').textContent = '0 caracteres';
+                });
+
+                // Copy buttons
+                document.getElementById('copyBase64Text').addEventListener('click', () => {
+                    this.copyToClipboard(document.getElementById('base64TextOutput').value);
+                });
+
+                document.getElementById('copyDecodedText').addEventListener('click', () => {
+                    this.copyToClipboard(document.getElementById('textOutput').value);
+                });
+
+                // Download buttons
+                document.getElementById('downloadBase64Text').addEventListener('click', () => {
+                    this.downloadFile(document.getElementById('base64TextOutput').value, 'base64.txt');
+                });
+
+                document.getElementById('downloadDecodedText').addEventListener('click', () => {
+                    this.downloadFile(document.getElementById('textOutput').value, 'decoded.txt');
+                });
+
+                // Image upload
+                this.setupImageUpload();
+
+                // File upload
+                this.setupFileUpload();
+            }
+
+            setupImageUpload() {
+                const uploadArea = document.getElementById('uploadArea');
+                const imageInput = document.getElementById('imageInput');
+
+                uploadArea.addEventListener('click', () => imageInput.click());
+                
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        this.handleImageFile(files[0]);
+                    }
+                });
+
+                imageInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        this.handleImageFile(e.target.files[0]);
+                    }
+                });
+            }
+
+            setupFileUpload() {
+                const uploadArea = document.getElementById('fileUploadArea');
+                const fileInput = document.getElementById('fileInput');
+
+                uploadArea.addEventListener('click', () => fileInput.click());
+                
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        this.handleFile(files[0]);
+                    }
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        this.handleFile(e.target.files[0]);
+                    }
+                });
+            }
+
+            handleImageFile(file) {
+                if (!file.type.startsWith('image/')) {
+                    alert('Por favor, selecione uma imagem válida.');
+                    return;
+                }
+
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('Arquivo muito grande. Máximo 10MB.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const base64 = e.target.result;
+                    this.displayImageResult(file, base64);
+                };
+                reader.readAsDataURL(file);
+            }
+
+            handleFile(file) {
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('Arquivo muito grande. Máximo 10MB.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const base64 = e.target.result.split(',')[1]; // Remove data:mime;base64,
+                    this.displayFileResult(file, base64);
+                };
+                reader.readAsDataURL(file);
+            }
+
+            displayImageResult(file, base64) {
+                // Show preview
+                document.getElementById('previewImg').src = base64;
+                document.getElementById('imageName').textContent = file.name;
+                document.getElementById('imageSize').textContent = this.formatFileSize(file.size);
+                document.getElementById('imageType').textContent = file.type;
+                
+                document.getElementById('imagePreview').style.display = 'block';
+                
+                // Show base64 result
+                document.getElementById('imageBase64Output').value = base64;
+                document.getElementById('base64Result').style.display = 'block';
+
+                // Setup image buttons
+                document.getElementById('copyImageBase64').onclick = () => {
+                    this.copyToClipboard(base64);
+                };
+
+                document.getElementById('copyImageHtml').onclick = () => {
+                    const html = `<img src="${base64}" alt="${file.name}">`;
+                    this.copyToClipboard(html);
+                };
+
+                document.getElementById('downloadImageBase64').onclick = () => {
+                    this.downloadFile(base64, `${file.name}.base64.txt`);
+                };
+            }
+
+            displayFileResult(file, base64) {
+                document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileSize').textContent = this.formatFileSize(file.size);
+                document.getElementById('fileType').textContent = file.type || 'Desconhecido';
+                
+                document.getElementById('fileInfo').style.display = 'block';
+                
+                const fullBase64 = `data:${file.type || 'application/octet-stream'};base64,${base64}`;
+                document.getElementById('fileBase64Output').value = fullBase64;
+                document.getElementById('fileBase64Result').style.display = 'block';
+
+                // Setup file buttons
+                document.getElementById('copyFileBase64').onclick = () => {
+                    this.copyToClipboard(fullBase64);
+                };
+
+                document.getElementById('downloadFileBase64').onclick = () => {
+                    this.downloadFile(fullBase64, `${file.name}.base64.txt`);
+                };
+            }
+
+            formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    const btn = event.target;
+                    const originalText = btn.textContent;
+                    btn.textContent = 'Copiado!';
+                    btn.style.backgroundColor = '#10b981';
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.backgroundColor = '';
+                    }, 2000);
+                });
+            }
+
+            downloadFile(content, filename) {
+                const blob = new Blob([content], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            new Base64Converter();
+        });
+
+        // AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --warning-color: #f59e0b;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-brand a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .converter-section {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .converter-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .converter-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card-header p {
+            margin: 0.25rem 0 0 0;
+            color: var(--text-secondary);
+        }
+
+        .text-converter {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .converter-row {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .input-group textarea {
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .input-group textarea[readonly] {
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .text-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .output-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-primary, .btn-secondary, .btn-clear {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+        }
+
+        .btn-clear {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-clear:hover {
+            background: var(--error-color);
+            color: white;
+            border-color: var(--error-color);
+        }
+
+        .converter-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover, .upload-area.dragover {
+            border-color: var(--primary-color);
+            background: var(--background);
+        }
+
+        .upload-content svg {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .upload-hint {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .image-preview, .file-info {
+            background: var(--background);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .preview-image img {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: var(--radius-sm);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .base64-result, .file-base64-result {
+            margin-top: 1rem;
+        }
+
+        .base64-result textarea, .file-base64-result textarea {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                padding: 1rem;
+            }
+            
+            .converter-card {
+                padding: 1.5rem;
+            }
+            
+            .output-actions {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</body>
+</html>

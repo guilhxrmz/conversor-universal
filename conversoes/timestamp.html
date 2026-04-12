@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Timestamp | Unix Timestamp Online</title>
+    <meta name="description" content="Conversor de Unix timestamp para data humana e vice-versa. Ferramenta gratuita para desenvolvedores.">
+    <meta name="keywords" content="timestamp converter, unix timestamp, epoch converter, date converter">
+    
+    <link rel="canonical" href="../conversoes/timestamp.html">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXX"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h1><a href="../index.html">Conversor Universal</a></h1>
+                    <span class="tagline">Conversor de Timestamp</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="../index.html#dev-tools">Voltar</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+        <section class="converter-section">
+            <div class="converter-card featured">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Unix Timestamp Converter</h3>
+                    <p>Converta entre timestamp e data legível</p>
+                </div>
+                <div class="converter-content">
+                    <div class="timestamp-converter">
+                        <div class="converter-row">
+                            <div class="input-group">
+                                <input type="number" 
+                                       id="timestamp-input" 
+                                       placeholder="Digite o timestamp..."
+                                       step="1">
+                                <label for="timestamp-input">Unix Timestamp</label>
+                                <button class="current-timestamp-btn" id="currentTimestamp">
+                                    Timestamp Atual
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="converter-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M7 7L17 7"></path>
+                                <path d="M17 7L17 17"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="converter-row">
+                            <div class="input-group">
+                                <input type="datetime-local" 
+                                       id="datetime-input">
+                                <label for="datetime-input">Data e Hora</label>
+                                <button class="current-datetime-btn" id="currentDatetime">
+                                    Data e Hora Atual
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timestamp-results" id="timestampResults">
+                        <div class="result-item">
+                            <span class="result-label">ISO 8601:</span>
+                            <span class="result-value" id="isoResult">-</span>
+                            <button class="copy-btn" data-target="isoResult">Copiar</button>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Data Local:</span>
+                            <span class="result-value" id="localResult">-</span>
+                            <button class="copy-btn" data-target="localResult">Copiar</button>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">UTC:</span>
+                            <span class="result-value" id="utcResult">-</span>
+                            <button class="copy-btn" data-target="utcResult">Copiar</button>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Milliseconds:</span>
+                            <span class="result-value" id="msResult">-</span>
+                            <button class="copy-btn" data-target="msResult">Copiar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anúncio -->
+        <div class="ad-between-sections">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXX"
+                 data-ad-slot="XXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        
+        <!-- Common Timestamps -->
+        <section class="common-timestamps">
+            <h3>Timestamps Comuns</h3>
+            <div class="timestamps-grid">
+                <div class="timestamp-item" data-timestamp="0">
+                    <div class="timestamp-value">0</div>
+                    <div class="timestamp-desc">Unix Epoch</div>
+                    <div class="timestamp-date">01/01/1970 00:00:00 UTC</div>
+                </div>
+                <div class="timestamp-item" data-timestamp="1000000000">
+                    <div class="timestamp-value">1000000000</div>
+                    <div class="timestamp-desc">Billion Second</div>
+                    <div class="timestamp-date">09/09/2001 01:46:40 UTC</div>
+                </div>
+                <div class="timestamp-item" data-timestamp="1234567890">
+                    <div class="timestamp-value">1234567890</div>
+                    <div class="timestamp-desc">Sequential</div>
+                    <div class="timestamp-date">13/02/2009 23:31:30 UTC</div>
+                </div>
+                <div class="timestamp-item" data-timestamp="2147483647">
+                    <div class="timestamp-value">2147483647</div>
+                    <div class="timestamp-desc">32-bit Max</div>
+                    <div class="timestamp-date">19/01/2038 03:14:07 UTC</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide -->
+        <section class="guide-section">
+            <h2>Guia de Timestamp</h2>
+            
+            <div class="guide-content">
+                <div class="guide-item">
+                    <h3>O que é Unix Timestamp?</h3>
+                    <p>Unix timestamp (ou epoch time) representa o número de segundos passados desde 1 de janeiro de 1970 00:00:00 UTC.</p>
+                </div>
+
+                <div class="guide-item">
+                    <h3>Como Converter?</h3>
+                    <div class="conversion-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span class="step-text">Digite o timestamp ou selecione uma data</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span class="step-text">A conversão acontece automaticamente</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Copie o resultado no formato desejado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <h3>Formatos Disponíveis</h3>
+                    <ul class="format-list">
+                        <li><strong>Unix Timestamp:</strong> Segundos desde 1970</li>
+                        <li><strong>ISO 8601:</strong> Formato padrão internacional</li>
+                        <li><strong>Data Local:</strong> Fuso horário do usuário</li>
+                        <li><strong>UTC:</strong> Tempo Universal Coordenado</li>
+                        <li><strong>Milliseconds:</strong> Timestamp em milissegundos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="use-cases">
+            <h2>Casos de Uso</h2>
+            
+            <div class="use-cases-grid">
+                <div class="use-case">
+                    <h4>Desenvolvimento Web</h4>
+                    <p>Converter timestamps de APIs para datas legíveis em JavaScript</p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>Logs e Debugging</h4>
+                    <p>Identificar quando eventos ocorreram baseado em timestamps</p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>Backup e Restore</h4>
+                    <p>Converter datas para timestamps para armazenamento</p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>Banco de Dados</h4>
+                    <p>Trabalhar com campos de data/timestamp em SQL</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Qual a diferença entre timestamp e epoch?</h3>
+                    <p>São termos usados intercambiavelmente. Epoch se refere ao ponto inicial (01/01/1970), enquanto timestamp é o número de segundos desde então.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Por que 01/01/1970?</h3>
+                    <p>É a data de início do Unix, o sistema operacional que popularizou este formato de tempo.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Timestamp funciona para datas antes de 1970?</h3>
+                    <p>Sim, timestamps negativos representam datas antes da Unix Epoch.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>O que é o "Y2K38 Problem"?</h3>
+                    <p>Em 19/01/2038, timestamps de 32 bits estourarão, causando problemas em sistemas antigos.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Conversor Universal. Conversor de timestamp online gratuito.</p>
+            <div class="footer-links">
+                <a href="../index.html">Início</a>
+                <a href="../sobre">Sobre</a>
+                <a href="../contato">Contato</a>
+                <a href="../privacidade">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/converter.js"></script>
+    <script src="../assets/js/history.js"></script>
+    <script>
+        // Timestamp Converter Logic
+        class TimestampConverter {
+            constructor() {
+                this.timestampInput = document.getElementById('timestamp-input');
+                this.datetimeInput = document.getElementById('datetime-input');
+                this.setupEventListeners();
+                this.setCurrentTimestamp();
+            }
+
+            setupEventListeners() {
+                // Timestamp input
+                this.timestampInput.addEventListener('input', (e) => {
+                    const timestamp = parseInt(e.target.value) || 0;
+                    this.updateFromTimestamp(timestamp);
+                });
+
+                // Datetime input
+                this.datetimeInput.addEventListener('input', (e) => {
+                    const date = new Date(e.target.value);
+                    this.updateFromDate(date);
+                });
+
+                // Current buttons
+                document.getElementById('currentTimestamp').addEventListener('click', () => {
+                    this.setCurrentTimestamp();
+                });
+
+                document.getElementById('currentDatetime').addEventListener('click', () => {
+                    this.setCurrentDatetime();
+                });
+
+                // Copy buttons
+                document.querySelectorAll('.copy-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const targetId = e.target.dataset.target;
+                        const element = document.getElementById(targetId);
+                        this.copyToClipboard(element.textContent);
+                    });
+                });
+
+                // Common timestamps
+                document.querySelectorAll('.timestamp-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const timestamp = parseInt(item.dataset.timestamp);
+                        this.timestampInput.value = timestamp;
+                        this.updateFromTimestamp(timestamp);
+                    });
+                });
+
+                // Batch converter
+                document.getElementById('convertBatch').addEventListener('click', () => {
+                    this.convertBatch();
+                });
+
+                document.getElementById('clearBatch').addEventListener('click', () => {
+                    document.getElementById('batchInput').value = '';
+                    document.getElementById('batchResults').innerHTML = '<p class="empty-batch">Digite valores para converter em lote</p>';
+                    document.getElementById('downloadBatch').style.display = 'none';
+                });
+            }
+
+            setCurrentTimestamp() {
+                const now = Math.floor(Date.now() / 1000);
+                this.timestampInput.value = now;
+                this.updateFromTimestamp(now);
+            }
+
+            setCurrentDatetime() {
+                const now = new Date();
+                const isoString = now.toISOString().slice(0, 16);
+                this.datetimeInput.value = isoString;
+                this.updateFromDate(now);
+            }
+
+            updateFromTimestamp(timestamp) {
+                const date = new Date(timestamp * 1000);
+                this.updateResults(date, timestamp);
+                
+                // Update datetime input
+                const isoString = date.toISOString().slice(0, 16);
+                this.datetimeInput.value = isoString;
+            }
+
+            updateFromDate(date) {
+                const timestamp = Math.floor(date.getTime() / 1000);
+                this.updateResults(date, timestamp);
+                
+                // Update timestamp input
+                this.timestampInput.value = timestamp;
+            }
+
+            updateResults(date, timestamp) {
+                document.getElementById('isoResult').textContent = date.toISOString();
+                document.getElementById('localResult').textContent = date.toLocaleString();
+                document.getElementById('utcResult').textContent = date.toUTCString();
+                document.getElementById('msResult').textContent = date.getTime();
+            }
+
+            copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    // Visual feedback
+                    const btn = event.target;
+                    const originalText = btn.textContent;
+                    btn.textContent = 'Copiado!';
+                    btn.style.backgroundColor = '#10b981';
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.backgroundColor = '';
+                    }, 2000);
+                });
+            }
+
+                    }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            new TimestampConverter();
+        });
+
+        // AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
